@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
+       <!--配置 注解扫描的包-->
+       <context:component-scan base-package="com.drayy"/>
+
+       <!--开启注解方案-->
+       <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>-->
+
+       <!--开启注解方案2-->
+       <mvc:annotation-driven/>
+
+       <!--静态资源访问-->
+       <mvc:resources mapping="/img/**" location="/image/"/>
+       <mvc:resources mapping="/js/**" location="/js/**"/>
+
+       <!--视图解析类-->
+       <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+              <property name="prefix" value="/"></property>
+
+              <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
+              <property name="suffix" value=".jsp"></property>
+       </bean>
+
+       <!--上传文件的bean -->
+       <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+              <property name="defaultEncoding" value="utf-8"></property>
+              <property name="maxUploadSize" value="10485760000"></property>
+              <property name="maxInMemorySize" value="40960"></property>
+       </bean>
 </beans>

@@ -11,7 +11,7 @@
     <!--配置 spring -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:config/applicationContext.xml</param-value>
+        <param-value>classpath*:config/spring-hibernate.xml</param-value>
     </context-param>
 
     <!--配置监听-->

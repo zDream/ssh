@@ -1,4 +1,4 @@
-package com.drayy.test;
+package com.drayy.test.controller;
 
 import java.io.*;
 import java.net.URL;

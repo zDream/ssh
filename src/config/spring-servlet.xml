@@ -24,10 +24,14 @@
 
        <!--视图解析类-->
        <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-              <property name="prefix" value="/"></property>
+              <property name="prefix">
+                  <value>/</value>
+              </property>
 
               <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
-              <property name="suffix" value=".jsp"></property>
+              <property name="suffix">
+                  <value>.jsp</value>
+              </property>
        </bean>
 
        <!--上传文件的bean -->

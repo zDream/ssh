@@ -20,8 +20,8 @@
 
        <!--静态资源访问-->
        <mvc:resources mapping="/img/**" location="/image/"/>
-       <mvc:resources mapping="/js/**" location="/js/**"/>
-
+       <mvc:resources mapping="/js/**" location="/js/"/>
+        <mvc:resources mapping="/plug/**" location="/plug/"/>
        <!--视图解析类-->
        <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
               <property name="prefix">
